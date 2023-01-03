@@ -152,3 +152,7 @@ contract /* Your Contract Name */  is ERC721A, Ownable, ReentrancyGuard {
         require(success);
     }
 }
+
+
+
+//Ivan Falimendikov 2023
