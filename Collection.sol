@@ -13,7 +13,7 @@ contract /* Your Contract Name */  is ERC721A, Ownable, ReentrancyGuard {
     string public hiddenURI;
     bool public mintActive = false;
     bool public revealLive = false;
-    uint256 public supply = /* Maximum supply of you NFT collection */;
+    uint256 public maxSupply = /* Maximum supply of you NFT collection */;
     uint256 public mintLimit = /* Maximum mint limit per 1 wallet */;
     uint256 private reserve = /* Amount of NFTS reserved for the owner */;
     uint256 private freeMints = /* Amount of free mints per wallet. Set 0 if you want all payable. */;
@@ -37,7 +37,7 @@ contract /* Your Contract Name */  is ERC721A, Ownable, ReentrancyGuard {
 
     modifier supplyCompliance(uint256 _count) {
         require(
-            totalSupply() + _count <= supply - reserve,
+            totalSupply() + _count <= maxSupply - reserve,
             "Requested mint count exceeds the supply!"
         );
         _;
